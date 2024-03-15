@@ -2,22 +2,29 @@
 from collections import deque
 
 
-def can_unlock_all(boxes):
-    # Initialize a set to keep track of encountered keys
-    keys = set()
-    # Initialize a queue with the first box
-    queue = deque([0])
+def canUnlockAll(boxes):
+    """Determine if all boxes can be opened.
 
-    # Loop until the queue is empty
-    while queue:
-        # Pop the first box from the queue
-        box = queue.popleft()
-        # Add the keys from the current box to the set of keys
-        keys.update(boxes[box])
-        # Add the boxes that can be unlocked with the keys to the queue
-        for key in boxes[box]:
-            if key < len(boxes) and key not in keys:
-                queue.append(key)
+    Args:
+        boxes (list of list): A list of lists representing the boxes.
+            Each box is represented by a list containing the indices
+            of the boxes it can unlock.
 
-    # Check if all boxes can be opened
-    return len(keys) == len(boxes)
+    Returns:
+        bool: True if all boxes can be opened, False otherwise.
+
+    Examples:
+        >>> boxes1 = [[1], [2], [3], [4], []]
+        >>> canUnlockAll(boxes1)
+        True
+
+    """
+    for key in range(1, len(boxes)):
+        flag = False
+        for box in range(len(boxes)):
+            if key in boxes[box] and box != key:
+                flag = True
+                break
+        if not flag:
+            return False
+    return True
