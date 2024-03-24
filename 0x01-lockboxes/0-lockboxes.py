@@ -21,16 +21,12 @@ def canUnlockAll(boxes):
         True
 
     """
-    position = 0
-    unlocked = {}
-
-    for box in boxes:
-        if len(box) == 0 or position == 0:
-            unlocked[position] = "always_unlocked"
-        for key in box:
-            if key < len(boxes) and key != position:
-                unlocked[key] = key
-        if len(unlocked) == len(boxes):
-            return True
-        position += 1
-    return False
+    for key in range(1, len(boxes)):
+        flag = False
+        for box in range(len(boxes)):
+            if key in boxes[box] and box != key:
+                flag = True
+                break
+        if not flag:
+            return False
+    return True
