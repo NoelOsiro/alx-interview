@@ -1,6 +1,4 @@
-Here's an example README.md file for your N Queens problem-solving program:
 
-```markdown
 # N Queens Solver
 
 ## Description
@@ -44,10 +42,8 @@ You are only allowed to import the sys module
 No installation required. Just ensure Python 3 is installed on your system.
 
 ## Author
-[Your Name]
+Noel Osiro
 
 ## License
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
-```
 
-Replace `[Your Name]` with your actual name or username. You can also include more sections or information as needed for your project.
