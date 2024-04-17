@@ -3,7 +3,7 @@
 import request from 'request';
 
 const id = process.argv[2] + '/';
-const url = 'https://swapi-api.hbtn.io/api/films/';
+const url = 'https://swapi-api.alx-tools.com/api/films/';
 
 request(url + id, async function (err, res, body) {
   if (err) return console.error(err);
